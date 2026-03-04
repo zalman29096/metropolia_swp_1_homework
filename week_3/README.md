@@ -1,0 +1,1 @@
+# Test results screenshot is in /results folder
