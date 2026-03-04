@@ -1,0 +1,1 @@
+# Test results screenshot and coverage HTML report are in /results folder
