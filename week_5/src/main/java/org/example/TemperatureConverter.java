@@ -6,7 +6,6 @@ package org.example;
  */
 public class TemperatureConverter {
 
-
     /**
      * Converts a temperature from Fahrenheit to Celsius.
      * Formula: (Fahrenheit - 32) * 5 / 9
@@ -27,6 +26,9 @@ public class TemperatureConverter {
      */
     public double celsiusToFahrenheit(double celsius) {
         return (celsius * 9.0 / 5.0) + 32.0;
+    }
+    public double kelvinToCelsius(double kelvin) {
+        return kelvin - 273.15;
     }
 
     /**

@@ -1,0 +1,48 @@
+pipeline {
+  agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                url: 'https://github.com/zalman29096/metropolia_swp_1_homework.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('metropolia_swp_1_homework/week_5') {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+            dir('metropolia_swp_1_homework') {
+                sh 'mvn test'
+                }
+            }
+        }
+
+    }
+//
+//   stages {
+//     stage('Checkout') {
+//       steps {
+//         checkout scm
+//       }
+//     }
+//
+//     stage('Build & Test') {
+//       steps {
+//         sh 'mvn -f week_5/pom.xml -B -e clean verify'
+//       }
+//       post {
+//         always {
+//           junit allowEmptyResults: true, testResults: 'week_5/target/surefire-reports/*.xml'
+//           archiveArtifacts artifacts: 'week_5/target/site/jacoco/**', fingerprint: true, allowEmptyArchive: true
+//         }
+//       }
+//     }
+//   }
+
+}
